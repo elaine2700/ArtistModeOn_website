@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+}
+
+.grid{
+    padding: 10px;
+    width: 100dvw;
+    height: 100dvh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.grid > section{
+    background-color: azure;
+    padding: 20px;
+}
+
+.grid > footer{
+    background-color: antiquewhite;
+}
+
+.bg-robot{
+    position: absolute;
+    width: 200px;
+    height: 300px;
+    bottom: 0px;
+    right: 0px;
+    background-color: brown;
+}
