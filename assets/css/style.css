@@ -1,36 +1,147 @@
 *{
     margin: 0;
     padding: 0;
+    border: 0;
     box-sizing: border-box;
 }
 
-body{
-    background-color: black;
+html{
+    font-family: 'Montserrat', sans-serif;
 }
 
-.grid{
-    padding: 10px;
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Tilt Warp', sans-serif;
+}
+
+body{
+    background-color: #DDEFEE;
     width: 100dvw;
     height: 100dvh;
+}
+
+a{
+    color:#35312F;
+    text-decoration: none;
+}
+
+a:visited{
+    color:#35312F;
+}
+
+a:hover{
+    color:#2D8E8A;
+}
+
+a:active{
+    color: #FBB03B;
+}
+
+.bold{
+    font-weight: 800;
+}
+
+/* Grid settings */
+.wrapper{
+    padding: 2rem;
+    height: 100%;
+}
+.grid{
+    height: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    grid-template-rows: repeat(2, 1fr);
+    border-top: solid #35312F 30px;
+}
+
+.grid > * {
+    z-index: 2;
+    min-height: 100px;
 }
 
 .grid > section{
-    background-color: azure;
-    padding: 20px;
+    border: #35312F solid;
+    border-width: 0 10px 30px 10px;
 }
 
-.grid > footer{
-    background-color: antiquewhite;
+/* Sections */
+#video-room{
+    background-color: #2D8E8A;
+    background-image: url('images/Pattern-Brick.png');
 }
 
-.bg-robot{
+#shop{
+    grid-column: span 2;
+    background-color: #FFE5C2;
+    background-image: url('images/Pattern-Diagonal.png');
+}
+
+#office{
+    background-color: #2D8E8A;
+    background-image: url('images/Pattern-Brick2.png');
+}
+
+#snack-room{
+    background-color: #2D8E8A;
+    background-image: url('images/Pattern-VerticalLines.png');
+}
+
+/* Contact box */
+.ground{
     position: absolute;
-    width: 200px;
-    height: 300px;
-    bottom: 0px;
-    right: 0px;
-    background-color: brown;
+    bottom: 0;
+    left: 0;
+    background-color: #35312F;
+    width: 100dvw;
+    height: 10rem;
+    z-index: 1;
+    text-align: center;
+
+}
+
+#contact-info{
+    background-color: #DDEFEE;
+    width: min-content;
+    height: min-content;
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1;
+    padding:0.5rem;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+@media only screen and (max-width:960px) {
+    body{
+        min-height: 100dvh;
+    }
+    .grid{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4,1fr);
+    }
+    
+    #shop{
+        grid-column: span 1;
+    }
+
+    .wrapper{
+        padding-bottom: 0;
+    }
+
+    .ground{
+        position: static;
+        left:-48px;
+        background-color: #35312F;
+        width: 100dvw;
+        height: 10rem;
+        z-index: 1;
+        padding: 1rem;
+    }
+
+    .ground > #contact-info{
+        position: static;
+        margin: auto;
+        margin-top: 3rem;
+    }
 }
