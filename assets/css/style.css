@@ -66,6 +66,16 @@ a:active{
 }
 
 /* Sections */
+.single-container{
+    container-type: inline-size;
+    container-name: single-room;
+}
+
+.double-container{
+    container-type: inline-size;
+    container-name: double-room;
+}
+
 #video-room{
     background-color: #2D8E8A;
     background-image: url('images/Pattern-Brick.png');
@@ -77,8 +87,6 @@ a:active{
     background-color: #FFE5C2;
     color: #DD4319;
     background-image: url('images/Pattern-Diagonal.png');
-    container-type: inline-size;
-    container-name: double-room;
 }
 
 #office{
@@ -91,8 +99,12 @@ a:active{
     background-image: url('images/Pattern-VerticalLines.png');
 }
 
-/* Contact box */
-.ground{
+.room-container{
+    font-size: 16px;
+}
+
+/* Footer */
+footer.ground{
     position: fixed;
     bottom: 0;
     left: 0;
@@ -101,7 +113,6 @@ a:active{
     height: 10rem;
     z-index: 1;
     text-align: center;
-
 }
 
 #contact-info{
@@ -118,6 +129,11 @@ a:active{
 }
 
 /* Video Room */
+#video-room > .room-container{
+    height: 100%;
+    padding-top: 2em;
+    position: relative;
+}
 
 .tv{
     width: 15em;
@@ -137,12 +153,6 @@ a:active{
     .tv >img{
         width: 2em;
     }
-
-#video-room > :nth-child(1){
-    height: 100%;
-    padding-top: 2em;
-    position: relative;
-}
 
 .sofas{
     position: absolute;
@@ -166,16 +176,15 @@ a:active{
 }
 
 /* Shop section */
-#shop > div {
-    position: static;
+
+#shop > .room-container {
     height: 100%;
-    display: block;
     display: flex;
 }
 
 .shop-button{
-    font-size: 2em;
-    padding: 0.2em;
+    font-size: 1.5em;
+    padding: 0.3em;
     background-color: #FFE5C2;
     border: 3px solid black;
     border-radius: 10px;
@@ -184,7 +193,7 @@ a:active{
     font-weight: 700;
     box-shadow: black 0.2em 0.2em;
     grid-column: 2/span2;
-    width: calc(100% - 2em);
+    width: calc(100% - 1em);
     min-width: 3em;
     max-width: 100em;
 }
@@ -201,7 +210,12 @@ a:active{
     width: 100%;
 }
 
-.room-section > :nth-child(2){
+.room-section:has(.frame-section){
+    display: flex;
+    align-items: center;
+}
+
+.room-section > .clothes-section{
     flex-shrink: 0.75;
 }
 
@@ -216,6 +230,34 @@ a:active{
     gap: 1em;
 }
 
+.frame-section > img{
+    height: calc(100%);
+    width: auto;
+}
+
+.frame{
+    background-color: #FFE5C2;
+    border-radius: 5px;
+    border: 2px solid black; 
+    outline: 2px solid black;
+    outline-offset: -6px;
+    padding: 2px;
+}
+
+.frame-section > .vertical-img{
+    height: calc(100%);
+    width: 3em;
+    background-image: url(images/Pattern-HorizontalLines.png);
+    background-size: cover;
+}
+
+.frame-section > .horizontal-img{
+    width: calc(100%);
+    height: 3em;
+    background-image: url(images/Pattern-VerticalLines.png);
+    background-size: cover;
+}
+
 .clothes-section {
     border-left: 2px black solid;
     max-width: 1000px;
@@ -225,22 +267,33 @@ a:active{
     background-image: url('images/Pattern-HorizontalLines.png');
     display: flex;
     align-items: end;
+    justify-content: center;
+}
+
+.clothes-section > img{
+    max-width: 15em;
 }
 
 .lamp{
     position: absolute;
-    transform: translateX(10em);
     max-width: 4em;
 }
 
+.lamp.left{
+    left: calc(9%);
+}
+.lamp.right{
+    right: calc(25%);
+}
+
 /* Office section */
-#office > div {
+#office > .room-container {
     position: relative;
     height: 100%;
     width: 100%;
 }
 
-#office > div > * {
+#office > .room-container > * {
     position: absolute;
 }
 
@@ -264,13 +317,13 @@ a:active{
 
 /* Snack room section */
 
-#snack-room > div{
+#snack-room > .room-container{
     position: relative;
     height: 100%;
     width: 100%;
 }
 
-#snack-room > div > * {
+#snack-room > .room-container > * {
     position: absolute;
 }
 
@@ -293,16 +346,26 @@ a:active{
 }
 
 
-
-@container double-room (min-width: 700px){
-
+@container double-room (max-width: 700px){
+    .room-container{
+        font-size: 14px;
+    }
 }
 
-@container single-room (min-width: 700px) {
-    .card h2 {
-      font-size: 2em;
+@container double-room (max-width: 600px){
+    .lamp.right{
+        display: none;
     }
-  }
+    .room-section:has(.clothes-section){
+        display:none;
+    }
+}
+
+@container single-room (max-width: 350px) {
+    .room-container{
+        font-size: 12px;
+    }
+}
 
 @media only screen and (max-width:960px) {
     body{
