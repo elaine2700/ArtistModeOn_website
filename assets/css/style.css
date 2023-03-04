@@ -166,6 +166,13 @@ a:active{
 }
 
 /* Shop section */
+#shop > div {
+    position: static;
+    height: 100%;
+    display: block;
+    display: flex;
+}
+
 .shop-button{
     font-size: 2em;
     padding: 0.2em;
@@ -186,20 +193,9 @@ a:active{
     color:#DD4319;
 }
 
-#shop > div {
-    position: static;
-    height: auto;
-    display: block;
-}
-
-.big{
-    font-size: 2em;
-}
-
-#shop > div {
-    display: flex;
-    height: 100%;
-}
+    .big{
+        font-size: 2em;
+    }
 
 .room-section {
     width: 100%;
@@ -236,6 +232,37 @@ a:active{
     transform: translateX(10em);
     max-width: 4em;
 }
+
+/* Office section */
+#office > div {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+#office > div > * {
+    position: absolute;
+}
+
+#office-window{
+    top: 2em;
+    left: calc(50% - 150px);
+}
+
+#office-shelves{
+    left:0;
+    bottom:0;
+    min-height: 10em;
+    max-height: 328px;
+    height: calc(100% - 1em);
+}
+
+#office-desk{
+    bottom:0;
+    left: calc(50% - 80px);
+}
+
+
 
 @container double-room (min-width: 700px){
 
