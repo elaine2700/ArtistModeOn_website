@@ -262,6 +262,36 @@ a:active{
     left: calc(50% - 80px);
 }
 
+/* Snack room section */
+
+#snack-room > div{
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+#snack-room > div > * {
+    position: absolute;
+}
+
+#snack-machine{
+    bottom: 0;
+}
+
+.counter{
+    width: 10em;
+    height: 2em;
+    background-color: #35312F;
+}
+
+#coffee-counter{
+    top: calc(25%);
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 
 @container double-room (min-width: 700px){
