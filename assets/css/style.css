@@ -59,6 +59,23 @@ a{
     width: 100%;
 }
 
+.button{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 0.1em;
+    box-shadow: black 0.2em 0.2em;
+    transition-duration: 0.5s;
+}
+    .button:hover{
+        background-color: #DDEFEE;
+    }
+    .button:active{
+        position: relative;
+        left: 0.2em;
+        top: 0.2em;
+        box-shadow: 0 0;
+    }
+
 /* Grid settings */
 .wrapper{
     padding: 2rem;
@@ -176,16 +193,26 @@ footer.ground{
         font-size: 1em;
         padding-top: 1em;
     }
-    .tv >img{
+    .tv > a{
         width: 2em;
+        height: 2em;
         inset: 0;
-        position: absolute;
         margin: auto;
+        display: block;
+        position: absolute;
+        padding: 1em;
+        transition-duration: 0.5s;
     }
+        .tv > a:hover{
+            background-color: #35312F;
+            transition-duration: 0.3s;
+        }
+
     .tv > img.in-logo{
+        position: absolute;
         width: 4em;
-        margin-bottom: 0.5em;
-        margin-left: 0.5em;
+        left: 0.2em;
+        bottom: 0.2em;
     }
 
 .sofas{
@@ -217,28 +244,30 @@ footer.ground{
     display: flex;
 }
 
-.shop-button{
-    font-size: 1.5em;
-    padding: 0.3em;
-    background-color: #FFE5C2;
-    border: 3px solid black;
-    border-radius: 10px;
-    text-transform: uppercase;
-    text-align: center;
-    font-weight: 700;
-    box-shadow: black 0.2em 0.2em;
-    grid-column: 2/span2;
-    width: calc(100% - 1em);
-    min-width: 3em;
-    max-width: 100em;
-}
-
 #shop a{
     color:#DD4319;
 }
 
     .big{
         font-size: 2em;
+    }
+
+.shop-link{
+    font-size: 1.5em;
+    padding: 0.3em;
+    background-color: #FFE5C2;
+    border-width: 2px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 700;
+    grid-column: 2/span2;
+    width: calc(100% - 1em);
+    min-width: 3em;
+    max-width: 100em;
+}
+    .shop-link:hover{
+        background-color: #FBB03B;
     }
 
 .room-section {
@@ -409,15 +438,6 @@ footer.ground{
     width: 3em;
     aspect-ratio: 1/1;
 }
-
-    .board-icons > a:hover{
-        border:1px solid black;
-        border-radius: 5px;
-    }
-
-    .board-icons > a:active{
-        background-color: #FFE5C2;
-    }
 
 #tripod{
     left:0;
@@ -595,4 +615,43 @@ footer.ground{
     .tv > img.in-logo{
         display: none;
     }
+}
+
+/* Icons */
+.icon{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.icon-play{
+    background-image: url(../../images/VR_Play_icon.png);
+}
+
+.icon-pencil{
+    background-image: url(../../images/Pencil_Icon@2x.png);
+}
+
+.icon-pen{
+    background-image: url(../../images/Pen_Icon@2x.png);
+}
+
+.icon-markers{
+    background-image: url(../../images/Markers_Icon@2x.png);
+}
+
+.icon-colorpencils{
+    background-image: url(../../images/ColorPencils_Icon@2x.png);
+}
+
+.icon-paper{
+    background-image: url(../../images/Paper_Icon@2x.png);
+}
+
+.icon-tablet{
+    background-image: url(../../images/Ipad_Icon@2x.png);
+}
+
+.icon-camera{
+    background-image: url(../../images/Camera_Icon@2x.png);
 }
