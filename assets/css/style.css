@@ -94,11 +94,14 @@ a:active{
 #office{
     background-color: #2D8E8A;
     background-image: url('images/Pattern-Brick2.png');
+    border-right: 0;
 }
 
-#snack-room{
+#recording-room{
     background-color: #2D8E8A;
-    background-image: url('images/Pattern-VerticalLines.png');
+    background-image: url('images/Pattern-Brick2.png');
+    background-position-x: -100px;
+    border-left: 0;
 }
 
 .room-container{
@@ -328,36 +331,95 @@ footer.ground{
     bottom:0;
     left: 60%;
     transform: translateX(-50%);
-    width: 70%;
+    width: 30%;
     max-width: 238px;
 }
 
-/* Snack room section */
+/* Recording room section */
 
-#snack-room > .room-container{
+#recording-room > .room-container{
     position: relative;
     height: 100%;
     width: 100%;
 }
 
-#snack-room > .room-container > * {
+#recording-room > .room-container > * {
     position: absolute;
 }
 
-#snack-machine{
-    left: 0.5em;
+.tools-board{
+    left:2em;
+    top: 1em;
+    position: absolute;
+    background-color: #2D8E8A;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 0.5em;
+    width: 70%;
+    min-height: 10em;
+}
+
+.tools-board h2,h3{
+    text-align: center;
+}
+
+.board-icons{
+    padding-top: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-items: center;
+    justify-content: center;
+}
+
+.board-icons > a > img {
+    height: 100%;
+    width: auto;
+    margin: 0 auto;
+}
+
+.board-icons > a {
+    width: 3em;
+    aspect-ratio: 1/1;
+}
+
+    .board-icons > a:hover{
+        border:1px solid black;
+        border-radius: 5px;
+    }
+
+    .board-icons > a:active{
+        background-color: #FFE5C2;
+    }
+
+#tripod{
+    left:0;
+    width: 40%;
     bottom: 0;
-    height: 70%;
-    max-height: 305px;
+    z-index: 3;
+}
+
+#camera{
+    left:40%;
+    bottom: 38%;
+    width: 10%;
+    z-index: 3;
+}
+
+#drawing-table{
+    left:25%;
+    bottom: 0;
+    width: 35%;
+    z-index: 3;
 }
 
 #coffee-counter{
-    top: 25%;
+    top: 35%;
     right: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 45%;
+    width: 20%;
     height: auto;
 }
 
@@ -444,9 +506,12 @@ footer.ground{
         grid-row: 2;
     }
 
-    #studio{
-        grid-column: 2;
-        grid-row: 1;
+    #office{
+        border-right: 10px solid #35312F;
+    }
+
+    #recording-room{
+        border-left: 10px solid #35312F;
     }
 
     .wrapper{
