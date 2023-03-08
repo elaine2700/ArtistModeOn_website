@@ -48,21 +48,23 @@ a:active{
     height: 100%;
 }
 .grid{
-    height: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
     border-top: solid #35312F 30px;
+    height: 100%;
+    margin: auto;
 }
 
 .grid > * {
     z-index: 2;
-    min-height: 300px;
+    min-height: 5em;
 }
 
 .grid > section{
     border: #35312F solid;
     border-width: 0 10px 30px 10px;
+    min-width: 3rem;
 }
 
 /* Sections */
@@ -101,6 +103,10 @@ a:active{
 
 .room-container{
     font-size: 16px;
+    aspect-ratio: 1/1;
+}
+.room-container.rectangle-ratio{
+    aspect-ratio: 2/1;
 }
 
 /* Footer */
@@ -130,13 +136,11 @@ footer.ground{
 
 /* Video Room */
 #video-room > .room-container{
-    height: 100%;
     padding-top: 2em;
-    position: relative;
 }
 
 .tv{
-    width: 15em;
+    width: 65%;
     aspect-ratio: 16/ 9;
     height: auto;
     background-color: black;
@@ -145,13 +149,18 @@ footer.ground{
     color:#DDEFEE;
     text-align: center;
     margin: auto;
+    position: relative;
 }
 
     .tv > p{
         font-size: 1em;
+        padding-top: 1em;
     }
     .tv >img{
         width: 2em;
+        inset: 0;
+        position: absolute;
+        margin: auto;
     }
 
 .sofas{
@@ -178,6 +187,7 @@ footer.ground{
 /* Shop section */
 
 #shop > .room-container {
+    width: 100%;
     height: 100%;
     display: flex;
 }
@@ -245,7 +255,8 @@ footer.ground{
 }
 
 .frame-section > .vertical-img{
-    height: calc(100%);
+    height: 100%;
+    min-height: 8em;
     width: 3em;
     background-image: url(images/Pattern-HorizontalLines.png);
     background-size: cover;
@@ -271,7 +282,8 @@ footer.ground{
 }
 
 .clothes-section > img{
-    max-width: 15em;
+    width: 80%;
+    max-width: 391px;
 }
 
 .lamp{
@@ -298,21 +310,26 @@ footer.ground{
 }
 
 #office-window{
-    top: 2em;
-    left: calc(50% - 150px);
+    top: 2.5em;
+    left: 60%;
+    transform: translateX(-50%);
+    width: 60%;
+    max-width: 295px;
 }
 
 #office-shelves{
     left:0;
     bottom:0;
-    min-height: 10em;
+    height: 90%;
     max-height: 328px;
-    height: calc(100% - 1em);
 }
 
 #office-desk{
     bottom:0;
-    left: calc(50% - 80px);
+    left: 60%;
+    transform: translateX(-50%);
+    width: 70%;
+    max-width: 238px;
 }
 
 /* Snack room section */
@@ -328,23 +345,34 @@ footer.ground{
 }
 
 #snack-machine{
+    left: 0.5em;
     bottom: 0;
-}
-
-.counter{
-    width: 10em;
-    height: 2em;
-    background-color: #35312F;
+    height: 70%;
+    max-height: 305px;
 }
 
 #coffee-counter{
-    top: calc(25%);
+    top: 25%;
     right: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 45%;
+    height: auto;
 }
 
+.counter{
+    width: 100%;
+    height: 2em;
+    background-color: #35312F;
+}
+
+#coffee-counter > img{
+    max-width: 99px;
+    width: 80%;
+}
+
+/* Double-room container */
 
 @container double-room (max-width: 700px){
     .room-container{
@@ -352,20 +380,49 @@ footer.ground{
     }
 }
 
-@container double-room (max-width: 600px){
+@container double-room (max-width: 520px){
+    .room-container{
+        font-size: 12px;
+    }
+
+    .lamp.left{
+        left: 30%;
+        transform: translateX(-50%);
+    }
+
     .lamp.right{
         display: none;
     }
     .room-section:has(.clothes-section){
         display:none;
     }
+    .room-container.rectangle-ratio{
+        aspect-ratio: 1/1;
+    }  
 }
 
-@container single-room (max-width: 350px) {
+@container double-room (max-width: 300px){
+    .room-container{
+        font-size: 10px;
+    }
+}
+
+/* Single room container */
+
+@container single-room (max-width: 400px) {
     .room-container{
         font-size: 12px;
     }
 }
+
+@container single-room (max-width: 200px) {
+    .room-container{
+        font-size: 10px;
+    }
+}
+
+
+/* Viewport configuration */
 
 @media only screen and (max-width:960px) {
     body{
@@ -373,12 +430,23 @@ footer.ground{
     }
     .grid{
         display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(4,1fr);
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(3,1fr);
+        height: auto;
+    }
+
+    .grid > section {
+        max-height: 100%;
     }
     
     #shop{
-        grid-column: span 1;
+        grid-column: 1 /span 2;
+        grid-row: 2;
+    }
+
+    #studio{
+        grid-column: 2;
+        grid-row: 1;
     }
 
     .wrapper{
@@ -398,6 +466,37 @@ footer.ground{
     .ground > #contact-info{
         position: static;
         margin: auto;
+        margin-right: 2rem;
         margin-top: 3rem;
+    }
+}
+
+@media only screen and (max-width:600px){
+    body{
+        height: max-content;
+    }
+
+    .grid{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4,1fr);
+    }
+
+    #shop{
+        grid-column: 1 /span 1;
+        grid-row: 2;
+    }
+
+    #studio{
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    .ground > #contact-info{
+
+    }
+
+    footer.ground{
+        position: static;
     }
 }
