@@ -173,7 +173,10 @@ footer.ground{
 
 /* Video Room */
 #video-room > .room-container{
+    width: 100%;
+    height: 100%;
     padding-top: 2em;
+    position: relative;
 }
 
 .tv{
@@ -217,9 +220,11 @@ footer.ground{
 
 .sofas{
     position: absolute;
-    width: 100%;
     height: auto;
     bottom: 0;
+    width: 95%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .sofas > div{
@@ -227,9 +232,7 @@ footer.ground{
     align-items: end;
     justify-content: center;
     gap: 1em;
-    height: auto;
     z-index: 3;
-    flex-shrink: 1;
 }
 .sofas > div > img{
     min-width: 3em;
